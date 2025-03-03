@@ -5,6 +5,7 @@ import WeatherContext from "../../context/WeatherContext";
 import {WeatherLoader} from '../WeatherLoader'
 
 const WeatherMain = ({weatherData}) => {
+    const apikey = process.env.REACT_APP_METEO_SYN_WEATHER_APP
     const {pageStatus} = useContext(WeatherContext)
     const {cityName} = useParams()
     const [weatherOtherDays,setWeatherOtherDays] = useState({})
@@ -14,7 +15,7 @@ const WeatherMain = ({weatherData}) => {
         const getData = async () =>{
             setForecastStatus(pageStatus.loading)
             try {
-                const response =await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=57df5d19f9c7e637892e1e554ce0e70f&units=metric`);
+                const response =await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apikey}&units=metric`);
                 const data = await response.json()
                 setWeatherOtherDays(data)
                 setForecastStatus(pageStatus.success)

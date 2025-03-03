@@ -10,6 +10,8 @@ import WeatherMain from '../WeatherMain';
 import SearchContainer from '../SearchContainer';
 
 const WeatherPage = () => { 
+  const apikey = process.env.REACT_APP_METEO_SYN_WEATHER_APP
+  console.log(apikey)
   const {cityName,countryName} = useParams();
   const { pageStatus, weatherTypes } = useContext(WeatherContext);
     const navigate = useNavigate();
@@ -22,7 +24,7 @@ const WeatherPage = () => {
         setWeatherPageStatus(pageStatus.loading);
         const getWeatherData = async () => {
             try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=57df5d19f9c7e637892e1e554ce0e70f&units=metric`);
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apikey}&units=metric`);
                 const data = await response.json();
                 setWeatherData(data);
                 setCityLocation({lat: data.coord.lat, lon: data.coord.lon});
@@ -39,7 +41,7 @@ const WeatherPage = () => {
       const getAirQualityData = async () => {
         if (!cityLocation || !cityLocation.lat || !cityLocation.lon) return; 
         try {
-          const response = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${cityLocation.lat}&lon=${cityLocation.lon}&appid=57df5d19f9c7e637892e1e554ce0e70f`);
+          const response = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${cityLocation.lat}&lon=${cityLocation.lon}&appid=${apikey}`);
           const data = await response.json();
           setAirQualityData(data);
           setWeatherPageStatus(pageStatus.success);

@@ -14,7 +14,7 @@ const AirQuality = ({airQuality, airQualityData}) =>{
     <ul className='air-pollutants-container'>
         {Object.entries(airQualityData.list[0].components).map(([pollutant,value]) => (
           <li key={pollutant} className='pollutants'>
-            <svg height={100} width={100} viewBox='0 0 100px 100px'>
+            <svg height={100} width={100}  >
               <circle cx={50} cy={50} r={20} fill='none' strokeWidth={5} stroke='white' />
               <circle
                 cx={50}

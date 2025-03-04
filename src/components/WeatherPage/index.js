@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {WeatherLoader, WeatherFailure} from '../WeatherLoader';
 import WeatherDetails from '../weatherDetails';
 import countryList from 'react-select-country-list';
@@ -11,10 +11,8 @@ import SearchContainer from '../SearchContainer';
 
 const WeatherPage = () => { 
   const apikey = process.env.REACT_APP_METEO_SYN_WEATHER_APP
-  console.log(apikey)
   const {cityName,countryName} = useParams();
   const { pageStatus, weatherTypes } = useContext(WeatherContext);
-    const navigate = useNavigate();
     const [weatherData, setWeatherData] = useState(null);
     const [cityLocation, setCityLocation] = useState(null);
     const [airQualityData, setAirQualityData] = useState(null);
@@ -35,7 +33,7 @@ const WeatherPage = () => {
         }
 
         getWeatherData();
-    }, [cityName]);
+    }, [cityName, apikey, pageStatus]);
 
     useEffect(() => {
       const getAirQualityData = async () => {
@@ -51,7 +49,7 @@ const WeatherPage = () => {
         }
       }
       getAirQualityData();
-    }, [cityLocation]);
+    }, [cityLocation,apikey,pageStatus]);
 
     const getCountryName = (countryCode) => countryList().getLabel(countryCode);
 

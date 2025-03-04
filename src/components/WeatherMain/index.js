@@ -24,7 +24,7 @@ const WeatherMain = ({weatherData}) => {
             }
         }
         getData()
-    },[])
+    },[cityName, apikey, pageStatus])
 
     const getDateTimeFormat = (date) => {
         const formattedDate = moment(date).format("MMM DD, HH:mm");

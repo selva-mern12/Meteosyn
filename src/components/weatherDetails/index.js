@@ -37,7 +37,7 @@ const WeatherDetails = ({weatherData}) => {
         setLeftValue(value)
       }
       getTimes()
-    },[now])
+    },[now, sunriseNum, sunsetNum,nowTimeNum])
 
     const getWindDirection = (deg) => {
       const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];

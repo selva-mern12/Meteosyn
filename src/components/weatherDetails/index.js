@@ -10,7 +10,6 @@ const WeatherDetails = ({weatherData}) => {
     const [leftValue, setLeftValue] = useState(0);
     const [showTime, setShowTime] = useState({visible:false, time: '', x: 0, y: 0})
 
-    const now = new Date();
     const sunset = new Date((weatherData?.sys?.sunset + weatherData?.timezone) * 1000).toLocaleTimeString('en-US', { timeZone: 'UTC', hour: "2-digit", minute: "2-digit", hour12: false });
     const sunrise = new Date((weatherData?.sys?.sunrise + weatherData?.timezone) * 1000).toLocaleTimeString('en-US', { timeZone: 'UTC', hour: "2-digit", minute: "2-digit",hour12: false});
     const nowTime = new Date().toLocaleTimeString('en-US', {hour: "2-digit", minute: "2-digit",hour12: false});
@@ -37,7 +36,7 @@ const WeatherDetails = ({weatherData}) => {
         setLeftValue(value)
       }
       getTimes()
-    },[now, sunriseNum, sunsetNum,nowTimeNum])
+    },[ sunriseNum, sunsetNum,nowTimeNum])
 
     const getWindDirection = (deg) => {
       const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];

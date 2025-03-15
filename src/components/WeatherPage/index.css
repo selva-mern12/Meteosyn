@@ -17,6 +17,7 @@
     height: 100vh;
     width: 100vw;
     position: relative;
+    gap: 20px;
 }
 .header{
     height: 7vh;
@@ -56,7 +57,6 @@
 .weather-details{
     width: 25vw;
     height: 85vh;
-    min-height: 150px;
     box-shadow: inset 1px 1px 10px #fff, inset -1px -1px 10px #000, 
                 1px 1px 10px #000, -1px -1px 10px #fff;
     border-radius: 10px;
@@ -136,6 +136,7 @@
     font-size: 20px;
 }
 .wind-info {
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -380,79 +381,86 @@
     margin: 0;
 }
 
-@media (max-width: 769px) {
+@media (max-width: 768px) {
     .header{
-        height: 10vh;
-        display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
-        margin: 0 20px ;
-        z-index: 100;
+        margin: 0;
     }
     .weather-city-name{
-        font-size: 20px;
+        font-size: 25px;
         margin: 5px;
     }
     .weather-country{
+        color: #dcc0df;
         font-size: 15px;
     }
-    
     .weather-container{
         margin-top: 15vh;
-        display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
         height: 90vh;
         overflow: auto;
     }
-    .weather-container::-webkit-scrollbar{
-        width: 7px;
-        border-radius: 10px;
-    }
-    .weather-container::-webkit-scrollbar-track{
-        background-color: transparent;
-        box-shadow: inset 1px 1px 10px #000, inset -1px -1px 10px #fff;
-        border-radius: 10px;
-        margin: 2px;
-    }
-    .weather-container::-webkit-scrollbar-thumb{
-        background-color: #e1a4e9;
-        border-radius: 10px;
-    }
-    .weather-main{
-        width: 100vw;
-        box-shadow: none;
-    }
-    .forecast-days-container{
-        width: 100vw;
-        background-color: transparent;
-        box-shadow: none;
-    }
-    .forecast-days-container::-webkit-scrollbar{
-        display: none;
-    }
     .weather-details{
-        width: 100vw;
+        width: 90vw;
+        height: 100vh;
         box-shadow: none;
         order: 2;
     }
-    .sun-container{
-        font-size: 14px;
-    }
     .sunrise-set-bar{
-        width: 280px;
+        width: 70vw;
+    }
+    .wind-info {
+        justify-content: flex-start;
+        padding: 10px;
+        padding: auto;
+        margin: auto;
+      }
+    .wind-container{
+        width: 29%;
+    }
+    .weather-icon{
+        font-size: 20px;
+    }
+    .weather-main{
+        width: 95vw;
+        order: 1;
+        box-shadow: none;
+    }
+    .weather-temp{
+        font-size: 35px;
+    }
+    .weather-type{
+        font-size: 18px;
+    }
+    .forecast-days-container{
+        box-shadow: none;
+        width: 100vw;
+        margin: 0 20px;
     }
     .air-quality-container{
-        width: 100vw;
+        width: 90vw;
         box-shadow: none;
         order: 3;    
     }
+    .air-quality-container p{
+        font-family: sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        margin-left: 25px;
+        margin-top: 10px;
+    }
+    .air-quality-container p span{
+        font-size: 15px;
+        font-family: 'Bree Serif', serif;
+        margin-bottom: 10px;
+    }
     .air-quality-bar{
-        width: 340px;
+        width: 100%;
     }
     .air-pollutants-container{
-        width: 90vw;
+        width: 100%;
     }
 }

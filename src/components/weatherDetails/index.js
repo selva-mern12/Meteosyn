@@ -137,24 +137,24 @@ const WeatherDetails = ({weatherData}) => {
                 </div>
             </div>
             <div style={{display: 'flex', flexDirection: 'column',width: '100%', alignItems: 'center'}}>
-            <h3 className='weather-head'>Wind Info</h3>
-            <div className="wind-info">
-                <div className='wind-container'>
-                    <TbWind className='weather-icon' />
-                    <p className='wind-para'>Wind Speed</p>
-                    <p className='wind-value'>{weatherData?.wind?.speed} kmps</p>
+                <h3 className='weather-head'>Wind Info</h3>
+                <div className="wind-info">
+                    <div className='wind-container'>
+                        <TbWind className='weather-icon' />
+                        <p className='wind-para'>Wind Speed</p>
+                        <p className='wind-value'>{weatherData?.wind?.speed} kmps</p>
+                    </div>
+                    <div className='wind-container'>
+                        < WiStrongWind className='weather-icon'/>
+                        <p className='wind-para'>Gust Speed</p>
+                        <p className='wind-value'>{weatherData?.wind?.gust ? `${weatherData.wind.gust} kmps` : "No gusts"}</p>
+                    </div>
+                    <div className='wind-container'>
+                        <FaCompass className='weather-icon' />
+                        <p className='wind-para'>Direction</p>
+                        <p className='wind-value'>{getWindDirection(weatherData?.wind?.deg)}</p>
+                    </div>
                 </div>
-                <div className='wind-container'>
-                    < WiStrongWind className='weather-icon'/>
-                    <p className='wind-para'>Gust Speed</p>
-                    <p className='wind-value'>{weatherData?.wind?.gust ? `${weatherData.wind.gust} kmps` : "No gusts"}</p>
-                </div>
-                <div className='wind-container'>
-                    <FaCompass className='weather-icon' />
-                    <p className='wind-para'>Direction</p>
-                    <p className='wind-value'>{getWindDirection(weatherData?.wind?.deg)}</p>
-                </div>
-            </div>
             </div>
         </div>
     )

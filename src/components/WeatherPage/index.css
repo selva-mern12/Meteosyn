@@ -54,6 +54,9 @@
     height: 90vh;
     overflow: auto;
 }
+.weather-container::-webkit-scrollbar{
+    display: none;
+}
 .weather-details{
     width: 25vw;
     height: 85vh;
